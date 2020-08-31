@@ -1,0 +1,23 @@
+<ion-header>
+	<ion-toolbar>
+		<ion-buttons slot="start">
+			<ion-menu-button></ion-menu-button>
+		</ion-buttons>
+		<ion-title>Heroes Dashboard</ion-title>
+	</ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+
+	<h3>Top Heroes</h3>
+	<div class="grid grid-pad">
+		<a *ngFor="let hero of heroes" class="col-1-4" routerLink="/details/{{hero.id}}">
+			<div class="module hero">
+				<h4>{{hero.name}}</h4>
+			</div>
+		</a>
+	</div>
+
+	<app-hero-search></app-hero-search>
+
+</ion-content>

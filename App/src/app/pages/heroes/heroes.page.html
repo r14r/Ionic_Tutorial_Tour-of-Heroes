@@ -1,0 +1,40 @@
+<ion-header>
+	<ion-toolbar>
+		<ion-buttons slot="start">
+			<ion-menu-button></ion-menu-button>
+		</ion-buttons>
+		<ion-title>heroes</ion-title>
+	</ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+	<h2>List of Heroes</h2>
+	<div>
+		<label>Hero name:
+			<input #heroName />
+		</label>
+		<!-- (click) passes input value to add() and then clears the input -->
+		<ion-button (click)="add(heroName.value); heroName.value=''">
+			add
+		</ion-button>
+	</div>
+
+	<ion-list class="Xheroes">
+
+		<ion-item-sliding *ngFor="let hero of heroes">
+			<ion-item #sliding_item (click)="show(hero)">
+				<ion-avatar item-start>{{hero.id}}</ion-avatar>
+				<ion-label>{{hero.name}}</ion-label>
+			</ion-item>
+
+			<!--
+			<ion-item-options side="end">
+				<ion-item-option (click)="delete(sliding_item, hero)">Delete</ion-item-option>
+				<ion-item-option (click)="unselect(hero)">Unselect</ion-item-option>
+			</ion-item-options>
+			-->
+		</ion-item-sliding>
+
+	</ion-list>
+
+</ion-content>

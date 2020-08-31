@@ -1,0 +1,46 @@
+<ion-header>
+	<ion-toolbar>
+		<ion-buttons slot="start">
+			<ion-back-button defaultHref="/"></ion-back-button>
+		</ion-buttons>
+
+				<ion-buttons slot="end">
+			<ion-button (click)="edit(!ineditmode)">
+				<ion-icon *ngIf="!ineditmode" name="build"></ion-icon>
+				<ion-icon *ngIf="ineditmode" name="save"></ion-icon>
+			</ion-button>
+		</ion-buttons>
+
+		<ion-title>Details of {{ hero?.name }}</ion-title>
+	</ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+
+	<form>
+		<ion-card *ngIf="hero">
+			<ion-card-content>
+
+				<ion-item>
+					<ion-label position="stacked">Name</ion-label>
+					<ion-input name="title" [(ngModel)]="hero.name" clearInput [disabled]='!ineditmode'></ion-input>
+				</ion-item>
+
+				<ion-item>
+					<ion-label position="stacked">Note</ion-label>
+					<ion-input name="note" [(ngModel)]="hero.id" clearInput [disabled]='!ineditmode'></ion-input>
+				</ion-item>
+			</ion-card-content>
+		</ion-card>
+	</form>
+
+
+	<ion-button (click)="goBack()">go back</ion-button>
+	<ion-button (click)="save()">save</ion-button>
+
+
+	<div *ngIf="!hero">
+		<h2>No Hero selected</h2>
+	</div>
+
+</ion-content>
